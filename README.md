@@ -173,9 +173,9 @@ df_train_val = df_train_val.drop(columns = cols_with_missing)
 df_test_val = df_test_val.drop(columns = cols_with_missing)
 ```
 
-## New features
+# New features
 
-# Number of years
+## Number of years
 * date recorded and construction year were given as the features
 * From the date recorded, recorded year was counted
 ```
@@ -200,4 +200,14 @@ df_test_val["number_of_years"] = df_test_val["year_recorded"] - df_test_val["con
   df_train_val.loc[df_train_val.number_of_years > 2000, 'number_of_years'] = 15
   df_test_val.loc[df_train_val.number_of_years > 2000, 'number_of_years'] = 15
   ```
-* 
+# Models
+
+## Random Forest
+## XgBoost
+## Gradient Boost
+
+*  Use `GridSearch` for hyper-parameter tunning
+
+# Post processing
+
+## Permutation Importance
