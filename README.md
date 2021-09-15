@@ -3,6 +3,137 @@
 <!-- ## Table of Contents
 1. [Preprocessng Steps](#Preproocessing_steps) -->
 
+# Exploratory data analysis
+
+## Object columns
+
+In this dataset following features' type are object
+
+```
+  'date_recorded', 'funder', 'installer', 'wpt_name', 'basin',
+  'subvillage', 'region', 'lga', 'ward', 'public_meeting', 'recorded_by',
+  'scheme_management', 'scheme_name', 'permit', 'extraction_type',
+  'extraction_type_group', 'extraction_type_class', 'management',
+  'management_group', 'payment', 'payment_type', 'water_quality',
+  'quality_group', 'quantity', 'quantity_group', 'source', 'source_type',
+  'source_class', 'waterpoint_type', 'waterpoint_type_group',
+  'status_group'
+```
+## Integer columns
+
+In this dataset following features' type are integer
+
+```
+'id', 'gps_height', 'num_private', 'region_code', 'district_code',
+       'population', 'construction_year'
+```
+
+## Float columns
+
+In this dataset following features' type are float
+
+```
+'amount_tsh', 'longitude', 'latitude'
+```
+
+## Unique values of object columns
+
+* Some object columns have large number of unique values
+```
+funder 1898
+installer 2146
+wpt_name 37400
+subvillage 19288
+ward 2092
+scheme_name 2697
+```
+* `recorded_by` column only has one unique value
+```
+GeoData Consultants Ltd    59400
+Name: recorded_by, dtype: int64
+```
+
+* Some object columns have small number of unique values
+```
+basin 9
+region 21
+lga 125
+public_meeting 3
+recorded_by 1
+scheme_management 13
+scheme_name 2697
+permit 3
+extraction_type 18
+extraction_type_group 13
+extraction_type_class 7
+management 12
+management_group 5
+payment 7
+payment_type 7
+water_quality 8
+quality_group 6
+quantity 5
+quantity_group 5
+source 10
+source_type 7
+source_class 3
+waterpoint_type 7
+waterpoint_type_group 6
+status_group 3
+```
+
+## Columns with missing values
+```
+ 'funder','installer','subvillage','public_meeting','scheme_management','scheme_name','permit'
+```
+
+
+## Label
+
+![image](https://user-images.githubusercontent.com/47107459/133430606-1ff90885-af24-47ef-951f-741afe6498c6.png)
+
+```
+functional                 32259
+non functional             22824
+functional needs repair     4317
+```
+Since `functional needs repair` have small amount of data, we can say that the dataaset is imbalance.
+
+## observation of columns
+
+### extraction_type
+![image](https://user-images.githubusercontent.com/47107459/133431668-5440bbe7-150f-45a1-ae72-e11baae3978a.png)
+
+*  some values have small amount of datapoints
+
+### quantity and quantity_group
+
+* quantity and quantity_group are identical
+
+### construction_year
+* construction_year most values are 0
+
+### amount_tsh
+* most values are 0
+
+### gps_height
+* most values are 0
+
+###  num_private
+* most values are 0
+
+### population
+* most values are 0
+
+
+
+
+
+
+
+
+
+
 
 # Preprocessing steps
 
