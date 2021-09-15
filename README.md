@@ -203,11 +203,39 @@ df_test_val["number_of_years"] = df_test_val["year_recorded"] - df_test_val["con
 # Models
 
 ## Random Forest
+```
+RandomForestClassifier(n_estimators=100, max_depth=5, random_state=0)
+```
 ## XgBoost
-## Gradient Boost
+```
+XGBClassifier(max_depth=13,n_estimators=200,learning_rate=0.075)
+```
 
-*  Use `GridSearch` for hyper-parameter tunning
+## Discion Tree
+```
+DecisionTreeClassifier( max_leaf_nodes=600)
+```
+
+## Gradient Boost
+```
+GradientBoostingClassifier(n_estimators=200, learning_rate=0.075, max_depth=14,  min_samples_leaf=15, max_features=0.1)
+```
+
+## MLP Classifier
+```
+MLPClassifier(random_state=1, max_iter=300)
+```
+
+
+*  Use `GridSearch` for hyper-parameter tunning in `GradientBoost` and `XgBoost` models
+*  GradientBoost and XgBoost has comparatively high accuracies
+*  MLPClassifer had comparatively low accuracy
 
 # Post processing
 
 ## Permutation Importance
+```
+PermutationImportance(gd, random_state=1).fit(X_test, y_test)
+```
+
+## 
