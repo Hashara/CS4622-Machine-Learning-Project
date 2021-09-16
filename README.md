@@ -202,9 +202,15 @@ df_test_val["number_of_years"] = df_test_val["year_recorded"] - df_test_val["con
   ```
 # Models
 
+*  Use `GridSearch` for hyper-parameter tunning in `GradientBoost` and `XgBoost` models
+*  GradientBoost and XgBoost has comparatively high accuracies
+*  MLPClassifer had comparatively low accuracy
+
 ## Random Forest
 ```
-RandomForestClassifier(n_estimators=100, max_depth=5, random_state=0)
+RandomForestClassifier(n_estimators=50, max_depth=30, 
+                                   min_samples_split=2, min_samples_leaf=3, 
+                                   random_state=2, min_weight_fraction_leaf=0.0005)
 ```
 ## XgBoost
 ```
@@ -218,18 +224,25 @@ DecisionTreeClassifier( max_leaf_nodes=600)
 
 ## Gradient Boost
 ```
-GradientBoostingClassifier(n_estimators=200, learning_rate=0.075, max_depth=14,  min_samples_leaf=15, max_features=0.1)
+GradientBoostingClassifier(n_estimators=200, learning_rate=0.075, max_depth=15,  min_samples_leaf=15, max_features=0.1)
 ```
 
 ## MLP Classifier
 ```
-MLPClassifier(random_state=1, max_iter=300)
+MLPClassifier(random_state=0, 
+                    max_iter=500,learning_rate='adaptive', alpha=0.0001,
+                    activation='relu',hidden_layer_sizes=(21,31,10,))
 ```
 
 
-*  Use `GridSearch` for hyper-parameter tunning in `GradientBoost` and `XgBoost` models
-*  GradientBoost and XgBoost has comparatively high accuracies
-*  MLPClassifer had comparatively low accuracy
+
+*  Since MLP classifer is sensitive to feature scaling,before training to the MLP classifer scaled the data
+  * ```
+    from sklearn.preprocessing import StandardScaler 
+
+    scaler = StandardScaler()
+    scaler.fit(X_train)
+    ``` 
 
 # Post processing
 
