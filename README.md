@@ -202,8 +202,8 @@ df_test_val["number_of_years"] = df_test_val["year_recorded"] - df_test_val["con
   ```
 # Models
 
-*  Use `GridSearch` for hyper-parameter tunning in `GradientBoost` and `XgBoost` models
-*  GradientBoost and XgBoost has comparatively high accuracies
+*  Use `GridSearch` for hyper-parameter tunning, for that used `GridSearchCV` library
+*  GradientBoost and XgBoost had comparatively high accuracies
 *  MLPClassifer had comparatively low accuracy
 
 ## Random Forest
