@@ -87,6 +87,9 @@ status_group 3
  'funder','installer','subvillage','public_meeting','scheme_management','scheme_name','permit'
 ```
 
+## Dulplicated rows
+* There were no duplicated rows in the dataset
+
 ## Correlation
 
 ![image](https://user-images.githubusercontent.com/47107459/133598073-2fae4b9b-9e4d-49b1-8ece-89d856e0eea2.png)
@@ -180,9 +183,19 @@ df_train_val = df_train_val.drop(columns = cols_with_missing)
 df_test_val = df_test_val.drop(columns = cols_with_missing)
 ```
 
-# New features
+## Enhancing features
 
-## Number of years
+### Population
+* Most of the values are 0
+* 0 Values were replcaed by the mean of `346` the population
+  ```
+  df_train_val.loc[df_train_val.population < 10, 'population'] = 346
+  df_test_val.loc[df_test_val.population < 10, 'population'] = 346
+  ```
+
+## New features
+
+### Number of years
 * date recorded and construction year were given as the features
 * From the date recorded, recorded year was counted
 ```
@@ -207,6 +220,9 @@ df_test_val["number_of_years"] = df_test_val["year_recorded"] - df_test_val["con
   df_train_val.loc[df_train_val.number_of_years > 2000, 'number_of_years'] = 15
   df_test_val.loc[df_train_val.number_of_years > 2000, 'number_of_years'] = 15
   ```
+  
+ 
+
 # Models
 
 *  Use `GridSearch` for hyper-parameter tunning, for that used `GridSearchCV` library
