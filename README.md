@@ -87,6 +87,13 @@ status_group 3
  'funder','installer','subvillage','public_meeting','scheme_management','scheme_name','permit'
 ```
 
+## Correlation
+
+![image](https://user-images.githubusercontent.com/47107459/133598073-2fae4b9b-9e4d-49b1-8ece-89d856e0eea2.png)
+
+* public meeting and permit are highly correlated
+* longitude and latitude, source_class and waterpoint_type also correlated
+
 
 ## Label
 
@@ -250,5 +257,9 @@ MLPClassifier(random_state=0,
 ```
 PermutationImportance(gd, random_state=1).fit(X_test, y_test)
 ```
+* In permutation importance measure how would affect the accuracy of predictions, If randomly shuffle a single column of the validation data, leaving the target and all other columns in place
 
+![image](https://user-images.githubusercontent.com/47107459/133590441-17fab039-0bf5-4acb-96b3-7232b3e011d6.png)
+
+* According to this the most important feature is quantity_group 
 ## 
