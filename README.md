@@ -328,6 +328,34 @@ one_hot_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
 'public_meeting', 'permit'
 ```
 
+## Hyper parameeter tunning
+* For hyper parameter tunning `GridSearchCV` was used
+```
+from sklearn.model_selection import GridSearchCV
+def rfmodel(X_train, X_val, y_train, y_val):
+    if __name__ == '__main__':
+    
+        param_grid = {'bootstrap': [True, False],
+                    'max_depth': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, None],
+                    'max_features': ['auto', 'sqrt'],
+                    'min_samples_leaf': [1, 2, 4],
+                    'min_samples_split': [2, 5, 10],
+                    'n_estimators': [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]}                   
+
+        estimator = GridSearchCV(estimator=RandomForestClassifier(),
+                                 param_grid=param_grid,
+                                 n_jobs=-1)
+
+        estimator.fit(X_train, y_train)
+
+        best_params = estimator.best_params_
+
+        print (best_params)
+                                 
+        validation_accuracy = estimator.score(X_val, y_val)
+        print('Validation accuracy: ', validation_accuracy)
+```
+
 # Feature Engineering
 
 ## Creation of new features by mathematical transformation
