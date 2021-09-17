@@ -239,6 +239,38 @@ df_test_val.loc[df_train_val.groupby('installer').installer.transform('count').l
 df_test_val.loc[df_test_val.groupby('installer').installer.transform('count').lt(50), 'installer'] = "Other"
 df_train_val.loc[df_train_val.groupby('installer').installer.transform('count').lt(50), 'installer'] = "Other"    
 ```
+
+## Under smapling and over sampling
+* Under sampling with `RandomUnderSampler`
+```
+undersample = RandomUnderSampler()
+X_train_undersample, y_train_undersample = undersample.fit_resample(X_train, y_train)
+X_train_undersample = pd.DataFrame(X_train_undersample, columns=X_train.columns)
+```
+* Over sampling with `SMOTE`
+```
+oversample = SMOTE("minority")
+X_train_oversampled, y_train_oversampled = oversample.fit_resample(X_train, y_train)
+X_train_smote = pd.DataFrame(X_train_oversampled, columns=X_train.columns)
+```
+* Over smapling with `RandomOverSampler`
+```
+oversample = RandomOverSampler(sampling_strategy='minority')
+X_train_oversampled, y_train_oversampled = oversample.fit_resample(X_train, y_train)
+X_train_oversampled = pd.DataFrame(X_train_oversampled, columns=X_train.columns))
+```
+* Both over sampling and under sampling with using `Pipeline`
+```
+over = SMOTE("minority")
+under = RandomUnderSampler()
+
+steps = [('o', over), ('u', under)]
+pipeline = Pipeline(steps=steps)
+
+X_train_pip, y_train_pip = pipeline.fit_resample(X_train, y_train)
+X_train_pip = pd.DataFrame(X_train_pip, columns=X_train.columns)
+```
+
 ### Other missing values
 
 * Other missing values were droped
@@ -322,6 +354,11 @@ df_test_val.loc[df_test_val.num_private == 10, 'num_private'] = median
 ```
 one_hot_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
 ````
+* Following features, which have binary values, were encoded with onehot encoding
+```
+'public_meeting', 'permit'
+```
+
 
 ## Principal component analysis
 
