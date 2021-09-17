@@ -305,9 +305,10 @@ PermutationImportance(gd, random_state=1).fit(X_test, y_test)
 * According to this the most important feature is quantity_group 
 ## Partial dependence plot
 
-* Class 0 = functional
-* Class 1 = functional needs repair
-* Class 2 = non functional
+* Some observation of the partial depenace graph are state here
+  * Class 0 = functional
+  * Class 1 = functional needs repair
+  * Class 2 = non functional
 
 ![image](https://user-images.githubusercontent.com/47107459/133736088-9cb5f16d-317c-44e9-98c9-0c0aa075867d.png)
 
@@ -317,4 +318,14 @@ PermutationImportance(gd, random_state=1).fit(X_test, y_test)
 
 *  According to the above graph, when changing the `construction_year` feature, it will highly affect to the predictions
 
+
+### SHAP
+
+* Summay plot
+![image](https://user-images.githubusercontent.com/47107459/133745049-0c416429-27e5-4989-bf95-75a7fa0b3265.png)
+  *   `num_private` has lower impact on the model
+  *   `quantity_group` has the higher impact on the model
+* Dependence Contribution Plots
+![image](https://user-images.githubusercontent.com/47107459/133745268-61be90d8-7830-458e-8cef-b26cbe72e90b.png)
+![image](https://user-images.githubusercontent.com/47107459/133745610-e9c81069-5825-4b5c-9400-b1ac74a3bb5b.png)
 
