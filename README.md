@@ -280,7 +280,7 @@ df_test_val["number_of_years"] = df_test_val["year_recorded"] - df_test_val["con
   ```
   
 
-## Enhancing exisiting features
+## Zero value features
 
 ### Population
 * Most of the values are 0
@@ -323,7 +323,29 @@ df_test_val.loc[df_test_val.num_private == 10, 'num_private'] = median
 one_hot_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
 ````
 
-## PCA
+## Principal component analysis
+
+* Before doing PCA dataset was standadized
+```
+from sklearn.preprocessing import StandardScaler 
+
+scaler = StandardScaler()
+scaler.fit(df_train_clean)
+df_train_clean_sc = scaler.transform(df_train_clean)  
+```
+
+* PCA done for 2 components
+```
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components = 2)
+pca.fit(df_train_clean_sc)
+
+df_train_clean_pc = pca.transform(df_train_clean_sc) 
+```
+![image](https://user-images.githubusercontent.com/47107459/133815175-b69f900a-b506-4b6f-8438-e4a94a3a4fbb.png)
+
+* Above graph shows that PCA is not useful in this case
 
 
 
