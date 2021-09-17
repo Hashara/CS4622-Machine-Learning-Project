@@ -3,7 +3,7 @@
 <!-- ## Table of Contents
 1. [Preprocessng Steps](#Preproocessing_steps) -->
 
-
+---
 # Preprocessing steps
 
 ## Missing values
@@ -148,6 +148,7 @@ def rfmodel(X_train, X_val, y_train, y_val):
         validation_accuracy = estimator.score(X_val, y_val)
         print('Validation accuracy: ', validation_accuracy)
 ```
+---
 
 # Feature Engineering
 
@@ -235,6 +236,17 @@ df_train_clean_pc = pca.transform(df_train_clean_sc)
 
 * Above graph shows that PCA is not useful in this case
 
+---
 
+# Feature selection
+* Following features were selected to training the model
+```
+'gps_height', 'longitude', 'latitude', 'num_private',
+'basin', 'region', 'district_code', 'lga', 'population',
+'construction_year', 'extraction_type_group', 'management_group',
+'payment', 'water_quality',  'quantity_group', 'source',
+'waterpoint_type'
+```
+---
 
 
