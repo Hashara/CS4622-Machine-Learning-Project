@@ -237,47 +237,4 @@ df_train_clean_pc = pca.transform(df_train_clean_sc)
 
 
 
-# Models
-
-*  Use `GridSearch` for hyper-parameter tunning, for that used `GridSearchCV` library
-*  GradientBoost and XgBoost had comparatively high accuracies
-*  MLPClassifer had comparatively low accuracy
-
-## Random Forest
-```
-RandomForestClassifier(n_estimators=50, max_depth=30, 
-                                   min_samples_split=2, min_samples_leaf=3, 
-                                   random_state=2, min_weight_fraction_leaf=0.0005)
-```
-## XgBoost
-```
-XGBClassifier(max_depth=13,n_estimators=200,learning_rate=0.075)
-```
-
-## Discion Tree
-```
-DecisionTreeClassifier( max_leaf_nodes=600)
-```
-
-## Gradient Boost
-```
-GradientBoostingClassifier(n_estimators=200, learning_rate=0.075, max_depth=15,  min_samples_leaf=15, max_features=0.1)
-```
-
-## MLP Classifier
-```
-MLPClassifier(random_state=0, 
-                    max_iter=500,learning_rate='adaptive', alpha=0.0001,
-                    activation='relu',hidden_layer_sizes=(21,31,10,))
-```
-
-
-
-*  Since MLP classifer is sensitive to feature scaling,before training to the MLP classifer scaled the data
-  * ```
-    from sklearn.preprocessing import StandardScaler 
-
-    scaler = StandardScaler()
-    scaler.fit(X_train)
-    ``` 
 
