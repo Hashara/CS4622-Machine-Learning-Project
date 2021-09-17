@@ -183,17 +183,9 @@ df_train_val = df_train_val.drop(columns = cols_with_missing)
 df_test_val = df_test_val.drop(columns = cols_with_missing)
 ```
 
-## Enhancing features
+# Feature Engineering
 
-### Population
-* Most of the values are 0
-* 0 Values were replcaed by the mean of `346` the population
-  ```
-  df_train_val.loc[df_train_val.population < 10, 'population'] = 346
-  df_test_val.loc[df_test_val.population < 10, 'population'] = 346
-  ```
-
-## New features
+## Creation of new features by mathematical transformation
 
 ### Number of years
 * date recorded and construction year were given as the features
@@ -221,7 +213,30 @@ df_test_val["number_of_years"] = df_test_val["year_recorded"] - df_test_val["con
   df_test_val.loc[df_train_val.number_of_years > 2000, 'number_of_years'] = 15
   ```
   
- 
+
+## Enhancing exisiting features
+
+### Population
+* Most of the values are 0
+* 0 Values were replcaed by the mean of `346` the population
+  ```
+  df_train_val.loc[df_train_val.population < 10, 'population'] = 346
+  df_test_val.loc[df_test_val.population < 10, 'population'] = 346
+  ```
+## Encoding 
+
+### Ordinal Encoding
+
+* Following features were encoded with ordinanl encoding
+```
+  basin', 'region', 'lga',  'extraction_type_group', 'management_group', 'payment', 'water_quality', 'quality_group', 'quantity_group', 'source',
+  'source_class', 'waterpoint_type', 'installer', 'public_meeting','scheme_management', 'permit'
+ ```
+### One hot encoding
+* One hot encoder used as following
+```
+one_hot_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
+````
 
 # Models
 
@@ -278,4 +293,4 @@ PermutationImportance(gd, random_state=1).fit(X_test, y_test)
 ![image](https://user-images.githubusercontent.com/47107459/133590441-17fab039-0bf5-4acb-96b3-7232b3e011d6.png)
 
 * According to this the most important feature is quantity_group 
-## 
+## Partial dependence plot
