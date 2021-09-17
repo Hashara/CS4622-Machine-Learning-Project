@@ -239,7 +239,46 @@ df_test_val.loc[df_train_val.groupby('installer').installer.transform('count').l
 df_test_val.loc[df_test_val.groupby('installer').installer.transform('count').lt(50), 'installer'] = "Other"
 df_train_val.loc[df_train_val.groupby('installer').installer.transform('count').lt(50), 'installer'] = "Other"    
 ```
+### scheme_management
+* Missing values were filled with the median `VWC`
+```
+df_train_val.scheme_management = df_train_val.scheme_management.fillna('VWC')
+df_test_val.scheme_management = df_test_val.scheme_management.fillna('VWC')
+```
+* `Trust` and `SWC` was rename to `Other`, becasue thses two did not had many data points
+```
+df_train_val.loc[df_train_val.scheme_management == 'Trust', 'scheme_management'] = 'Other'
+df_test_val.loc[df_test_val.scheme_management == 'Trust', 'scheme_management'] = 'Other'
 
+df_train_val.loc[df_train_val.scheme_management == 'SWC', 'scheme_management'] = 'Other'
+df_test_val.loc[df_test_val.scheme_management == 'SWC', 'scheme_management'] = 'Other'
+```
+
+### permit
+* Binary type column
+* Replaced with median, `True`
+```
+df_train_val.permit = df_train_val.permit.fillna(True)
+df_test_val.permit = df_test_val.permit.fillna(True)
+```
+
+### public_meeting
+* Binary type column
+* Replaced with median, `True`
+```
+df_train_val.public_meeting = df_train_val.permit.fillna(True)
+df_test_val.public_meeting = df_test_val.permit.fillna(True)
+```
+
+### Other missing values
+
+* Other missing values were droped
+```
+cols_with_missing = [col for col in df_test_val.columns
+                     if df_test_val[col].isnull().any()]
+df_train_val = df_train_val.drop(columns = cols_with_missing)
+df_test_val = df_test_val.drop(columns = cols_with_missing)
+```
 ## Under smapling and over sampling
 * Under sampling with `RandomUnderSampler`
 ```
@@ -270,15 +309,23 @@ pipeline = Pipeline(steps=steps)
 X_train_pip, y_train_pip = pipeline.fit_resample(X_train, y_train)
 X_train_pip = pd.DataFrame(X_train_pip, columns=X_train.columns)
 ```
+## Encoding 
 
-### Other missing values
+### Ordinal Encoding
 
-* Other missing values were droped
+* Following features were encoded with ordinanl encoding
 ```
-cols_with_missing = [col for col in df_test_val.columns
-                     if df_test_val[col].isnull().any()]
-df_train_val = df_train_val.drop(columns = cols_with_missing)
-df_test_val = df_test_val.drop(columns = cols_with_missing)
+  basin', 'region', 'lga',  'extraction_type_group', 'management_group', 'payment', 'water_quality', 'quality_group', 'quantity_group', 'source',
+  'source_class', 'waterpoint_type', 'installer', 'public_meeting','scheme_management', 'permit'
+ ```
+### One hot encoding
+* One hot encoder used as following
+```
+one_hot_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
+````
+* Following features, which have binary values, were encoded with onehot encoding
+```
+'public_meeting', 'permit'
 ```
 
 # Feature Engineering
@@ -340,24 +387,7 @@ df_train_val.loc[df_train_val.num_private == 10, 'num_private'] = median
 df_test_val.loc[df_test_val.num_private == 10, 'num_private'] = median
 ```
 
-## Encoding 
 
-### Ordinal Encoding
-
-* Following features were encoded with ordinanl encoding
-```
-  basin', 'region', 'lga',  'extraction_type_group', 'management_group', 'payment', 'water_quality', 'quality_group', 'quantity_group', 'source',
-  'source_class', 'waterpoint_type', 'installer', 'public_meeting','scheme_management', 'permit'
- ```
-### One hot encoding
-* One hot encoder used as following
-```
-one_hot_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
-````
-* Following features, which have binary values, were encoded with onehot encoding
-```
-'public_meeting', 'permit'
-```
 
 
 ## Principal component analysis
