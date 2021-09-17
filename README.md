@@ -229,8 +229,17 @@ df_test_val["number_of_years"] = df_test_val["year_recorded"] - df_test_val["con
 * 0 values were replaced by the median. i.e `2000`
 ```
 median = x.construction_year.median()
-df_train_val.loc[df_train_val.construction_year < 10, 'construction_year'] = median
-df_test_val.loc[df_test_val.construction_year < 10, 'construction_year'] = median
+df_train_val.loc[df_train_val.construction_year == 10, 'construction_year'] = median
+df_test_val.loc[df_test_val.construction_year == 10, 'construction_year'] = median
+```
+
+### num_private
+* Most va;ues are 0
+* 0 values were replcaed by the median, `15`
+```
+median = x.num_private.median()
+df_train_val.loc[df_train_val.num_private == 10, 'num_private'] = median
+df_test_val.loc[df_test_val.num_private == 10, 'num_private'] = median
 ```
 
 ## Encoding 
