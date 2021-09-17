@@ -179,7 +179,30 @@ Since `functional needs repair` have small amount of data, we can say that the d
 * most values are 0
 
 
+## EDA summary
 
+* Dataset contains object type columns, integer type columns and float type columns
+‘funder’, ‘installer’, ‘wpt_name’,’ subvillage’, ‘ward’,’ scheme_name’ contain higher number of unique values
+* ‘recorded_by’ column had one unique values
+* `basin`, `region`, `public_meeting`, `recorded_by `,`scheme_management, `scheme_name` `permit`,` extraction_type `,` extraction_type_group `,` extraction_type_class `,`management `,` management_group `,`payment`,` payment_type `,`water_quality `,` quality_group `,` quantity`,` quantity_group`,` source`,` source_type `,` source_class `,`waterpoint_type `, `waterpoint_type_group `, `status_group` contain comparatively lower number of unique values
+* 'funder', 'installer', 'subvillage', 'public_meeting', 'scheme_management', 'scheme_name', 'permit' had missing values
+* There were no duplicate rows in the dataset
+* `public_meeting` and `permit` are highly correlated positively.
+* `longitude` and `latitude`, `source_class` and `waterpoint_type` are negatively correlated
+* The label `status_type` had 3 categories `functional`, `non functional`, and `functional needs repair` which has 32259, 22824 and 4317 data points respectively. Since `functional needs repair` has a small amount of data, we can say that the dataset is imbalanced.
+* Even though `extraction_type` had 18 categories, 7 categories had less than 200 data points while others were having a larger amount of data points.
+* In `payment`, when `payment` Is `never pay` or `unknown` more possible to be status _type to `non functional` while other categories are more possible to be `functional`.
+* In `payment_type`, when `payment_ type ` Is `never pay` or `unknown` more possible to be status _type to `non functional` while other categories are more possible to be `functional`.
+* In `water_quality`, when  `water_quality` is `soft` more possible to be `status_type` to `functional`, while `water_quality` is `salty` or`unknown`, `status_type` is more possible to be `non functional`.  
+* Even though `water_quality` had 8 categories, 4 categories had less than 500 data points.
+* In `quality_group`, When `quality_group` is good, more possible to be `status_type` to `functional`
+* In `quantity`, when `quantity` is `dry` more possible to be `non functional` while `enough` is more possible to be `functional`.
+* Also in `quantity_group`, when `quantity_group` is `dry` more possible to be `non functional` while `enough` is more possible to be `functional`.
+* `quantity_group` and `quantity` have the same values, They are identical. 
+* In `source_class`, `unknown` category has a comparatively small number of data points.
+* In `waterpoint_type`, even though there were 7 categories, 3 categories had a comparatively low number of datapoints
+* In `waterpoint_type`, when `waterpoint_type` is `communal standpipe` or `hand_pump` more possible to be `functional` and when  `waterpoint_type` is `communal standpipe multiple ` or `other` more likely to be `non functional`
+* `construction_year`, `amount_tsh`, `gps_height`. `num_private`, `population` had more zero values
 
 
 
