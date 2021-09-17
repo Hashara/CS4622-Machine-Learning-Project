@@ -3,6 +3,11 @@
 <!-- ## Table of Contents
 1. [Preprocessng Steps](#Preproocessing_steps) -->
 
+### files description
+* [All_implementations.ipynb](https://github.com/Hashara/CS4622-Machine-Learning-Project/blob/main/All_implementations.ipynb) - Contains all the implementation done
+* [Model with highest accuracy.ipynb](https://github.com/Hashara/CS4622-Machine-Learning-Project/blob/main/Model%20with%20highest%20accuracy.ipynb) - Highest accuracy implementation
+* [EDA.ipynb](https://github.com/Hashara/CS4622-Machine-Learning-Project/blob/main/EDA.ipynb) - contains Exploratory data analysis
+* [EDA and post processing.md](https://github.com/Hashara/CS4622-Machine-Learning-Project/blob/main/EDA%20and%20post%20processing.md) - description of EDA and post processing
 ---
 # Preprocessing steps
 
