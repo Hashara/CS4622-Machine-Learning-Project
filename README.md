@@ -1,4 +1,4 @@
-# CS4622-Machine-Learning-Project <a name="TOP"></a>
+# CS4622-Machine-Learning-Project: Pump it Up: Data Mining the Water Table<a name="TOP"></a>
 
 <!-- ## Table of Contents
 1. [Preprocessng Steps](#Preproocessing_steps) -->
