@@ -304,3 +304,17 @@ PermutationImportance(gd, random_state=1).fit(X_test, y_test)
 
 * According to this the most important feature is quantity_group 
 ## Partial dependence plot
+
+* Class 0 = functional
+* Class 1 = functional needs repair
+* Class 2 = non functional
+
+![image](https://user-images.githubusercontent.com/47107459/133736088-9cb5f16d-317c-44e9-98c9-0c0aa075867d.png)
+
+*  According to above graphs when changing the `num_private` feature, the impact of the prediction change is neglegible.
+
+![image](https://user-images.githubusercontent.com/47107459/133736498-47e20fd2-755c-40dd-9b5e-04bcedef1b3e.png)
+
+*  According to the above graph, when changing the `construction_year` feature, it will highly affect to the predictions
+
+
