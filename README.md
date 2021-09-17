@@ -257,6 +257,10 @@ df_test_val.loc[df_test_val.num_private == 10, 'num_private'] = median
 one_hot_encoder = OneHotEncoder(handle_unknown='ignore', sparse=False)
 ````
 
+## PCA
+
+
+
 # Models
 
 *  Use `GridSearch` for hyper-parameter tunning, for that used `GridSearchCV` library
@@ -331,10 +335,13 @@ PermutationImportance(gd, random_state=1).fit(X_test, y_test)
 ### SHAP
 
 * Summay plot
+
 ![image](https://user-images.githubusercontent.com/47107459/133745049-0c416429-27e5-4989-bf95-75a7fa0b3265.png)
   *   `num_private` has lower impact on the model
   *   `quantity_group` has the higher impact on the model
 * Dependence Contribution Plots
+
+
   ![image](https://user-images.githubusercontent.com/47107459/133745268-61be90d8-7830-458e-8cef-b26cbe72e90b.png)
   ![image](https://user-images.githubusercontent.com/47107459/133745610-e9c81069-5825-4b5c-9400-b1ac74a3bb5b.png)
 
