@@ -223,6 +223,16 @@ df_test_val["number_of_years"] = df_test_val["year_recorded"] - df_test_val["con
   df_train_val.loc[df_train_val.population < 10, 'population'] = 346
   df_test_val.loc[df_test_val.population < 10, 'population'] = 346
   ```
+  
+### Construction Year
+* Most values are 0
+* 0 values were replaced by the median. i.e `2000`
+```
+median = x.construction_year.median()
+df_train_val.loc[df_train_val.construction_year < 10, 'construction_year'] = median
+df_test_val.loc[df_test_val.construction_year < 10, 'construction_year'] = median
+```
+
 ## Encoding 
 
 ### Ordinal Encoding
