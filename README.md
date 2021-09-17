@@ -120,6 +120,49 @@ Since `functional needs repair` have small amount of data, we can say that the d
 
 * quantity and quantity_group are identical
 
+### Payment
+![image](https://user-images.githubusercontent.com/47107459/133777947-79fc6493-15c1-4f15-a6f3-86fe28640529.png)
+
+* when `payment` Is `never pay` or `unknown` more possible to be status _type to `non functional` while other categories are more possible to be `functional`.
+
+### Payment_type
+![image](https://user-images.githubusercontent.com/47107459/133780037-f4dbe821-5f94-4bcc-94f9-60b67d025245.png)
+
+* when `payment_ type ` Is `never pay` or `unknown` more possible to be status _type to `non functional` while other categories are more possible to be `functional`.
+
+### water_quality
+![image](https://user-images.githubusercontent.com/47107459/133780545-7d63209c-4b2d-4f35-a801-af3b2559dd57.png)
+
+*  when  `water_quality` is `soft` more possible to be `status_type` to `functional`, while `water_quality` is `salty` or`unknown`, `status_type` is more possible to be `non functional`.  
+* Even though `water_quality` had 8 categories, 4 categories had less than 500 data points.
+
+### quality_group
+![image](https://user-images.githubusercontent.com/47107459/133785022-52980d62-a20e-4dd1-bfac-25bd4ca638ad.png)
+
+* In `quality_group`, When `quality_group` is good, more possible to be `status_type` to `functional`.
+
+### quantity
+![image](https://user-images.githubusercontent.com/47107459/133788767-85282223-2efd-4266-b864-7ca9e3fdd2bb.png)
+
+* when `quantity` is `dry` more possible to be `non functional` while `enough` is more possible to be `functional`
+
+### quantity_group
+![image](https://user-images.githubusercontent.com/47107459/133789085-1f16b781-7c15-4872-b27b-719fb92cb535.png)
+
+* when quantity_group is dry more possible to be non functional while enough is more possible to be functional.
+
+* `quantity_group` and `quantity` have the same values, They are identical. 
+
+### waterpoint_type
+![image](https://user-images.githubusercontent.com/47107459/133792519-7f38dd57-1ae8-4db8-a0bd-4f281df4d802.png)
+
+
+*   In `waterpoint_type`, even though there were 7 categories, 3 categories had comparatively low number of datapoints
+
+* when `waterpoint_type` is `communal standpipe` or `hand_pump` more possible to be `functional` and when  `waterpoint_type` is `communal standpipe multiple ` or `other` more likely to be `non functional`
+
+
+
 ### construction_year
 * construction_year most values are 0
 
