@@ -326,6 +326,6 @@ PermutationImportance(gd, random_state=1).fit(X_test, y_test)
   *   `num_private` has lower impact on the model
   *   `quantity_group` has the higher impact on the model
 * Dependence Contribution Plots
-![image](https://user-images.githubusercontent.com/47107459/133745268-61be90d8-7830-458e-8cef-b26cbe72e90b.png)
-![image](https://user-images.githubusercontent.com/47107459/133745610-e9c81069-5825-4b5c-9400-b1ac74a3bb5b.png)
+  ![image](https://user-images.githubusercontent.com/47107459/133745268-61be90d8-7830-458e-8cef-b26cbe72e90b.png)
+  ![image](https://user-images.githubusercontent.com/47107459/133745610-e9c81069-5825-4b5c-9400-b1ac74a3bb5b.png)
 
